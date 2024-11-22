@@ -1,0 +1,37 @@
+model: 'dae'
+scale: 2
+rgb_range: 255
+colors: 3
+n_mpab: 24
+c_mpan: 60
+r_expand: 2
+act_type: 'gelu'
+window_sizes: [4, 8, 16]
+split_size: [1, 2, 8]
+pretrain: /public/home/bjzhong/home/jzhang/DAE-backbone/checkpoint/model_x2_998.pt
+# pretrain:
+
+## parameters for model training
+patch_size: 96
+batch_size: 32
+data_repeat: 80
+data_augment: 1
+
+epochs: 1000
+lr: 0.0002
+decays: [200,400,600,800]
+gamma: 0.5
+log_every: 20
+test_every: 1
+# log_path: "/data/cv2023/jzhang"
+log_path: "/public/home/bjzhong/home/jzhang/dataset"
+log_name: train
+
+## hardware specification
+gpu_ids: [0]
+threads: 8
+
+## data specification
+# data_path: '/data/cv2023/jzhang'
+data_path: "/public/home/bjzhong/home/jzhang/dataset"
+eval_sets: ['Set5', 'Set14']
