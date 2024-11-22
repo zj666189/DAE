@@ -87,7 +87,7 @@ train_dataloader, valid_dataloaders = create_datasets(args)
 
 ## definitions of model
 try:
-    model = utils.import_module('{}_network'.format(args.model)).create_model(args)
+    model = utils.import_module('models.{}_network'.format(args.model)).create_model(args)
 except Exception:
     raise ValueError('not supported model type! or something')
 args.fp = 32
