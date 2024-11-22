@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     ## definitions of model
     try:
-        model = utils.import_module('{}_network'.format(args.model, args.model)).create_model(args)
+        model = utils.import_module('models.{}_network'.format(args.model, args.model)).create_model(args)
     except Exception:
         raise ValueError('not supported model type! or something')
 
